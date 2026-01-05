@@ -33,8 +33,12 @@ body {
   .table-head-base {
     @apply px-4 py-3 text-left text-sm font-semibold text-gray-600 uppercase;
   }
-  
+
   .table-data-base {
     @apply px-4 py-3 text-sm font-medium text-gray-900;
+  }
+
+  .pagination-tile-base {
+    @apply w-8 h-8 text-center border border-gray-400 rounded flex items-center justify-center;
   }
 }

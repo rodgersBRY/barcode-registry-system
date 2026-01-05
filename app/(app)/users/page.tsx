@@ -1,31 +1,22 @@
 import Link from "next/link";
-import { LogOutIcon, Plus, Pencil } from "lucide-react";
+import {
+  Plus,
+  Pencil,
+  ChevronRightIcon,
+  ChevronLeftIcon,
+} from "lucide-react";
 import { dummyUsers } from "@/data/users";
 import { Icon } from "@/components/icon";
 import { formatDate } from "@/utils/formatDate";
+import PageHeader from "@/components/navbar";
 
 export default function Users() {
   return (
     <>
-      <header className="bg-white shadow-sm flex justify-between px-10 py-5">
-        <div className="page-title">
-          <h1 className="font-bold text-xl">Users</h1>
-          <p className="text-sm">Manage system access and user roles</p>
-        </div>
-
-        <div className="user flex items-center gap-4">
-          <div className="user-info">
-            <p className="font-semibold">John Smith</p>
-            <p className="text-sm text-gray-600">Administrator</p>
-          </div>
-
-          <div className="logout-btn">
-            <Link href={"/login"}>
-              <Icon icon={LogOutIcon} className="text-gray-500 w-6 h-4"></Icon>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        title="Users"
+        subtitle="Manage system access and user roles"
+      ></PageHeader>
 
       <main className="p-10">
         <div className="user-list-actions flex justify-between items-end gap-4">
@@ -126,6 +117,41 @@ export default function Users() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <hr className="my-4 text-gray-300" />
+
+        <div className="pages flex justify-between items-end">
+          <p className="text-sm">showing 1 to 5 of 20 users</p>
+
+          <div className="pagination-tiles flex gap-3">
+            <div className="prev pagination-tile-base">
+              <Icon icon={ChevronLeftIcon} className="w-4 text-gray-400"></Icon>
+            </div>
+
+            <div className="1 page pagination-tile-base bg-red-700 text-white">
+              <p>1</p>
+            </div>
+
+            <div className="2 page pagination-tile-base">
+              <p>2</p>
+            </div>
+
+            <div className="3 page pagination-tile-base">
+              <p>3</p>
+            </div>
+
+            <div className="4 page pagination-tile-base">
+              <p>4</p>
+            </div>
+
+            <div className="next pagination-tile-base">
+              <Icon
+                icon={ChevronRightIcon}
+                className="w-4 text-gray-700"
+              ></Icon>
+            </div>
+          </div>
         </div>
       </main>
     </>
