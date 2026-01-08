@@ -5,7 +5,7 @@ import PageHeader from "../components/PageHeader";
 
 export default function Studies() {
   return (
-    <>
+    <div>
       <PageHeader
         title="Studies / Projects"
         subtitle="Manage and view all studies and their associated barcpde print runs"
@@ -60,6 +60,6 @@ export default function Studies() {
           </Link>
         </div>
       </main>
-    </>
+    </div>
   );
 }

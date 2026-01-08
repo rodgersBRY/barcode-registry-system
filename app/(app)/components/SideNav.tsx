@@ -9,6 +9,7 @@ import clsx from "clsx";
 
 export default function NavBar() {
   const pathname = usePathname();
+
   const navRoutes = [
     {
       title: "Dashboard",
@@ -39,7 +40,7 @@ export default function NavBar() {
 
   return (
     <aside className="bg-white w-60 h-screen flex flex-col">
-      <div className="flex items-center gap-2 shadow py-5 px-4">
+      <div className="flex items-center gap-2 shadow-sm py-5 px-4">
         <Image
           src="/logo.png"
           alt="Barcode Registry System"
