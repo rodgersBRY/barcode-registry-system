@@ -1,14 +1,10 @@
 import Link from "next/link";
-import {
-  Plus,
-  Pencil,
-  ChevronRightIcon,
-  ChevronLeftIcon,
-} from "lucide-react";
+import { Plus, Pencil } from "lucide-react";
 import { dummyUsers } from "@/data/users";
 import { Icon } from "@/components/icon";
 import { formatDate } from "@/utils/formatDate";
 import PageHeader from "@/components/navbar";
+import PaginationWidget from "./components/PaginationWidget";
 
 export default function Users() {
   return (
@@ -73,6 +69,7 @@ export default function Users() {
           <table className="w-full border rounded-lg overflow-hidden">
             <thead className="rounded">
               <tr>
+                <th className="table-head-base">S/No</th>
                 <th className="table-head-base">Full Name</th>
                 <th className="table-head-base">Email Address</th>
                 <th className="table-head-base">User Role</th>
@@ -83,23 +80,29 @@ export default function Users() {
             </thead>
 
             <tbody className="divide-y divide-gray-200 bg-white">
-              {dummyUsers.map((user) => (
+              {dummyUsers.map((user, index) => (
                 <tr
                   key={user.id}
                   className="hover:bg-gray-50 transition text-sm"
                 >
+                  <td className="table-data-base">
+                    <div className="rounded-full w-3 h-3 border border-gray-500 p-3 text-center flex items-center justify-center">
+                      <p className="text-sm text-gray-500">{index + 1}</p>
+                    </div>
+                  </td>
+
                   <td className="table-data-base">{user.fullName}</td>
 
                   <td className="table-data-base">{user.username}</td>
 
                   <td className="table-data-base">
-                    <div className="rounded-full text-xs px-3 bg-green-200 text-center text-green-900 font-semibold">
+                    <div className="rounded-full text-xs px-3 bg-green-200 text-center text-green-900 font-semibold w-25 capitalize">
                       {user.role}
                     </div>
                   </td>
 
                   <td className="table-data-base">
-                    <div className="rounded-full text-xs px-3 bg-gray-300 text-center text-gray-900 font-semibold">
+                    <div className="rounded-full text-xs px-3 bg-gray-300 text-center text-gray-900 font-semibold w-25 capitalize">
                       {user.status}
                     </div>
                   </td>
@@ -121,38 +124,7 @@ export default function Users() {
 
         <hr className="my-4 text-gray-300" />
 
-        <div className="pages flex justify-between items-end">
-          <p className="text-sm">showing 1 to 5 of 20 users</p>
-
-          <div className="pagination-tiles flex gap-3">
-            <div className="prev pagination-tile-base">
-              <Icon icon={ChevronLeftIcon} className="w-4 text-gray-400"></Icon>
-            </div>
-
-            <div className="1 page pagination-tile-base bg-red-700 text-white">
-              <p>1</p>
-            </div>
-
-            <div className="2 page pagination-tile-base">
-              <p>2</p>
-            </div>
-
-            <div className="3 page pagination-tile-base">
-              <p>3</p>
-            </div>
-
-            <div className="4 page pagination-tile-base">
-              <p>4</p>
-            </div>
-
-            <div className="next pagination-tile-base">
-              <Icon
-                icon={ChevronRightIcon}
-                className="w-4 text-gray-700"
-              ></Icon>
-            </div>
-          </div>
-        </div>
+        <PaginationWidget></PaginationWidget>
       </main>
     </>
   );
