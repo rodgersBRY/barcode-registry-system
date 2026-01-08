@@ -3,8 +3,8 @@ import { Plus, Pencil } from "lucide-react";
 import { dummyUsers } from "@/data/users";
 import { Icon } from "@/components/icon";
 import { formatDate } from "@/utils/formatDate";
-import PageHeader from "@/components/navbar";
 import PaginationWidget from "./components/PaginationWidget";
+import PageHeader from "../components/PageHeader";
 
 export default function Users() {
   return (

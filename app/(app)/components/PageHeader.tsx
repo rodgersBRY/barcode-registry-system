@@ -1,6 +1,6 @@
 import { LogOutIcon } from "lucide-react";
 import Link from "next/link";
-import { Icon } from "./icon";
+import { Icon } from "../../../components/icon";
 
 type PageHeaderProps = {
   title: string;
