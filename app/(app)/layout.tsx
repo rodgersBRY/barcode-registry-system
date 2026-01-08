@@ -1,4 +1,4 @@
-import NavBar from "./components/SideNav";
+import NavBar from "./_/SideNav";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (

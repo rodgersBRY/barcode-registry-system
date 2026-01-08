@@ -3,8 +3,8 @@ import { Plus, Pencil } from "lucide-react";
 import { dummyUsers } from "@/data/users";
 import { Icon } from "@/components/icon";
 import { formatDate } from "@/utils/formatDate";
-import PaginationWidget from "./components/PaginationWidget";
-import PageHeader from "../components/PageHeader";
+import PaginationWidget from "../_/PaginationWidget";
+import PageHeader from "../_/PageHeader";
 
 export default function Users() {
   return (
@@ -65,7 +65,7 @@ export default function Users() {
           </div>
         </div>
 
-        <div className="users-table py-4">
+        <div className="users-table py-4 mt-10">
           <table className="w-full border rounded-lg overflow-hidden">
             <thead className="rounded">
               <tr>

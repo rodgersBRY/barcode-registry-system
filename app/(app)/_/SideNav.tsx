@@ -6,11 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { XRouteType } from "../config/types/routes";
 
 export default function NavBar() {
   const pathname = usePathname();
 
-  const navRoutes = [
+  const navRoutes: XRouteType[] = [
     {
       title: "Dashboard",
       route: "/dashboard",
