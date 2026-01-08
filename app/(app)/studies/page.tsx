@@ -11,7 +11,7 @@ export default function Studies() {
         subtitle="Manage and view all studies and their associated barcpde print runs"
       ></PageHeader>
 
-      <main className="user-list-actions flex justify-between items-end gap-4">
+      <main className="user-list-actions flex justify-between items-end gap-4 p-10">
         <div className="filter-actions flex gap-5">
           <div className="search">
             <input

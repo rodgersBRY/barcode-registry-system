@@ -59,8 +59,9 @@ export default function NavBar() {
               key={item.route}
               href={item.route}
               className={clsx(
-                "flex gap-3 p-1.5 rounded-lg",
-                isActive ? "text-red-600 bg-red-50" : "text-black"
+                "group relative flex items-center gap-3 p-1.5 rounded-lg",
+                "transition-colors duration-200 ease-out",
+                isActive ? "text-white bg-red-600" : "text-black hover:text-gray-600 hover:bg-gray-100"
               )}
             >
               <Icon icon={item.icon} className=""></Icon>
