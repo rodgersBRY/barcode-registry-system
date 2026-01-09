@@ -20,7 +20,7 @@ export default function Studies() {
         <div className="flex justify-end items-end gap-4">
           <div className="create-user">
             <Link
-              href={""}
+              href={"/printjobs/new"}
               className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white font-semibold hover:cursor-pointer"
             >
               <Icon icon={Plus} className="w-6 h-4"></Icon>
@@ -130,7 +130,9 @@ export default function Studies() {
               Apply Filters
             </button>
 
-            <button className="border border-gray-600 px-8 h-10 rounded-lg text-gray-600">Reset</button>
+            <button className="border border-gray-600 px-8 h-10 rounded-lg text-gray-600">
+              Reset
+            </button>
           </div>
         </section>
 

@@ -25,6 +25,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @layer components {
   .input-label-base {
     @apply font-semibold text-sm;

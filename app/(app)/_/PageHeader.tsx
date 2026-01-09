@@ -4,7 +4,7 @@ import { Icon } from "../../../components/icon";
 
 type PageHeaderProps = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 export function PageHeader({ title, subtitle }: PageHeaderProps) {
