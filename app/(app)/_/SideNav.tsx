@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { XRouteType } from "../config/types/routes";
 
-export default function NavBar() {
+export function SideNav() {
   const pathname = usePathname();
 
   const navRoutes: XRouteType[] = [
@@ -62,7 +62,9 @@ export default function NavBar() {
               className={clsx(
                 "group relative flex items-center gap-3 p-1.5 rounded-lg",
                 "transition-colors duration-200 ease-out",
-                isActive ? "text-white bg-red-600" : "text-black hover:text-gray-600 hover:bg-gray-100"
+                isActive
+                  ? "text-white bg-red-600"
+                  : "text-black hover:text-gray-600 hover:bg-gray-100"
               )}
             >
               <Icon icon={item.icon} className=""></Icon>

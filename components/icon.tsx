@@ -5,6 +5,6 @@ type IconProp = {
   className: string;
 };
 
-export const Icon = ({ icon: IconComponent, className }: IconProp) => {
+export function Icon({ icon: IconComponent, className }: IconProp) {
   return <IconComponent className={className}></IconComponent>;
-};
+}

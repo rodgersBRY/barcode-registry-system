@@ -1,7 +1,7 @@
 import { Icon } from "@/components/icon";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-export default function PaginationWidget() {
+export function PaginationWidget() {
   return (
     <>
       <div className="pages flex justify-between items-end">

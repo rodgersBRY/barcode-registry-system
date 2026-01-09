@@ -7,7 +7,7 @@ type PageHeaderProps = {
   subtitle: string;
 };
 
-export default function PageHeader({ title, subtitle }: PageHeaderProps) {
+export function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <header className="bg-white shadow-sm flex justify-between px-10 py-4">
       <div className="page-title">

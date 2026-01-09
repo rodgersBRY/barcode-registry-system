@@ -1,8 +1,8 @@
 import { Icon } from "@/components/icon";
 import { Eye, Pencil, Plus } from "lucide-react";
 import Link from "next/link";
-import PageHeader from "../_/PageHeader";
-import PaginationWidget from "../_/PaginationWidget";
+import { PageHeader } from "../_/PageHeader";
+import { PaginationWidget } from "../_/PaginationWidget";
 import { dummyStudies } from "@/data/studies";
 import { formatDate } from "@/utils/formatDate";
 
