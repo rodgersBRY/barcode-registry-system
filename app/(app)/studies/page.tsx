@@ -26,7 +26,7 @@ export default function Studies() {
           <div className="create-user">
             <button
               onClick={() => setOpen(true)}
-              className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white hover:cursor-pointer"
+              className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white font-bold hover:cursor-pointer"
             >
               <Icon icon={Plus} className="w-6 h-4"></Icon>
               <p>Create Study/Project</p>

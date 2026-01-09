@@ -27,7 +27,7 @@ export default function Users() {
               onClick={() => setOpen(true)}
               className="hover:cursor-pointer"
             >
-              <div className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white">
+              <div className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white  font-bold">
                 <Icon icon={Plus} className="w-6 h-4"></Icon>
                 <p>Create User</p>
               </div>
