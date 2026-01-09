@@ -1,7 +1,12 @@
-export default function Dashboard() {
+import { PageHeader } from "../_/PageHeader";
+
+export default function Studies() {
   return (
-    <>
-      <h3>Dashboard</h3>
-    </>
+    <div>
+      <PageHeader
+        title="Dashboard"
+        subtitle="System overview and primary actions"
+      />
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Login() {
   const handleSubmit = function () {
     alert("logging in...");
@@ -36,12 +38,11 @@ export default function Login() {
         />
       </div>
 
-      <button
-        type="submit"
-        className="bg-gray-300 text-white w-full py-2 font-semibold mt-4 rounded-lg hover:bg-gray-400 hover:cursor-pointer"
-      >
-        Log In
-      </button>
+      <Link href={"/dashboard"}>
+        <div className="bg-gray-400 text-white w-full py-2 font-semibold mt-4 rounded-lg disabled:bg-gray-300 hover:cursor-pointer text-center">
+          Log in
+        </div>
+      </Link>
     </form>
   );
 }

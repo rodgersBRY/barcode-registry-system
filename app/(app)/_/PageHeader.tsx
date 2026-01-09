@@ -1,4 +1,4 @@
-import { LogOutIcon } from "lucide-react";
+import { LogOutIcon, User } from "lucide-react";
 import Link from "next/link";
 import { Icon } from "../../../components/icon";
 
@@ -16,6 +16,10 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
       </div>
 
       <div className="user flex items-center gap-4">
+        <div className="rounded-full w-12 h-12 flex justify-center items-center border-2 border-gray-400">
+          <Icon icon={User} className="text-gray-400"></Icon>
+        </div>
+
         <div className="user-info">
           <p className="font-semibold">John Smith</p>
           <p className="text-sm text-gray-600">Administrator</p>
