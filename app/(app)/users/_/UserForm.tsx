@@ -1,3 +1,5 @@
+import { UserRole, UserStatus } from "@/data/users";
+
 type UserFormProps = {
   mode: "create" | "edit";
   onSuccess?: () => void;
@@ -5,7 +7,6 @@ type UserFormProps = {
 
 export function UserForm({ mode, onSuccess }: UserFormProps) {
   async function handleSubmit() {
-
     onSuccess?.();
   }
 
@@ -45,7 +46,24 @@ export function UserForm({ mode, onSuccess }: UserFormProps) {
           Role <span className="text-red-600">*</span>
         </label>
 
-        <input type="text" name="name" id="name" className="input-base" />
+        <div className="user-roles">
+          <select
+            name="user-role"
+            id="user-role"
+            className="input-base w-full appearance-none rounded
+    px-4 py-3 pr-10 text-sm
+    transition"
+          >
+            <option value="select role" selected>
+              Select Role
+            </option>
+            {Object.values(UserRole).map((role) => (
+              <option key={role} value={role} className="capitalize">
+                {role}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <div className="role-tips bg-gray-100 rounded-lg p-3">
           <ul className="text-xs text-gray-600">
@@ -66,13 +84,26 @@ export function UserForm({ mode, onSuccess }: UserFormProps) {
           Account Status <span className="text-red-600">*</span>
         </label>
 
-        <input
-          type="text"
-          name="name"
-          id="name"
-          className="input-base"
-          placeholder="user@company.com"
-        />
+        <div className="user-status-values">
+          <select
+            name="user-status"
+            id="user-status"
+            className="input-base w-full appearance-none rounded
+    px-4 py-3 pr-10 text-sm
+    transition"
+          >
+            <option value="select status" selected>
+              Select Status
+            </option>
+            {Object.values(UserStatus)
+              .filter((status) => status != UserStatus.pending)
+              .map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+          </select>
+        </div>
 
         <p className="text-xs font-semibold text-gray-400">
           Active users can log in and use the system
@@ -99,7 +130,9 @@ export function UserForm({ mode, onSuccess }: UserFormProps) {
       <hr className="text-gray-200 my-5" />
 
       <div className="actions flex justify-end gap-4">
-        <button className="rounded-lg px-3 text-gray-500 border-2 border-gray-400 hover:cursor-pointer">Cancel</button>
+        <button className="rounded-lg px-3 text-gray-500 border-2 border-gray-400 hover:cursor-pointer">
+          Cancel
+        </button>
         <button
           type="submit"
           className="rounded-lg py-2 px-5 bg-red-700 text-white font-semibold hover:cursor-pointer"

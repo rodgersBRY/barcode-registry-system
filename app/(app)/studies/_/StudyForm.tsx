@@ -1,3 +1,5 @@
+import { UserStatus } from "@/data/users";
+
 type StudyFormProps = {
   mode: "create" | "edit";
   onSuccess?: () => void;
@@ -107,7 +109,26 @@ export function StudyForm({ mode, onSuccess }: StudyFormProps) {
           Status <span className="text-red-600">*</span>
         </label>
 
-        <input type="text" name="status" id="status" className="input-base" />
+        <div className="project-status-values">
+          <select
+            name="project-status"
+            id="project-status"
+            className="input-base w-full appearance-none rounded
+            px-4 py-3 pr-10 text-sm
+            transition"
+          >
+            <option value="select status" selected>
+              Select Status
+            </option>
+            {Object.values(UserStatus)
+              .filter((status) => status != UserStatus.pending)
+              .map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+          </select>
+        </div>
 
         <p className="text-xs font-semibold text-gray-400">
           Closed studies cannot have new print jobs added
