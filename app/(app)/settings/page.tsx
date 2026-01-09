@@ -1,7 +1,12 @@
-export default function Settings() {
+import { PageHeader } from "../_/PageHeader";
+
+export default function Studies() {
   return (
-    <>
-      <h3>Settings</h3>
-    </>
+    <div>
+      <PageHeader
+        title="Settings"
+        subtitle="Complete registry of all recorded barcode print jobs"
+      />
+    </div>
   );
 }

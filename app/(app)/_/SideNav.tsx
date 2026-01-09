@@ -40,7 +40,7 @@ export function SideNav() {
   ];
 
   return (
-    <aside className="bg-white w-60 h-screen flex flex-col">
+    <aside className="bg-white w-60 min-h-screen flex flex-col">
       <div className="flex items-center gap-2 shadow-sm py-5 px-4">
         <Image
           src="/logo.png"

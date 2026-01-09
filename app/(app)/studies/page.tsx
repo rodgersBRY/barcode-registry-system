@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@/components/icon";
-import { Eye, Pencil, Plus } from "lucide-react";
+import { Eye, Pencil, Plus, Search } from "lucide-react";
 import { PageHeader } from "../_/PageHeader";
 import { PaginationWidget } from "../_/PaginationWidget";
 import { dummyStudies } from "@/data/studies";
@@ -9,6 +9,7 @@ import { formatDate } from "@/utils/formatDate";
 import { useState } from "react";
 import { Modal } from "../_/Modal";
 import { StudyForm } from "./_/StudyForm";
+import { UserStatus } from "@/data/users";
 
 export default function Studies() {
   const [open, setOpen] = useState(false);
@@ -21,46 +22,7 @@ export default function Studies() {
       />
 
       <main className="user-list-actions p-10">
-        <div className="flex justify-between items-end gap-4">
-          <div className="filter-actions flex gap-5">
-            <div className="search">
-              <input
-                type="text"
-                className="input-base"
-                placeholder="Search projects..."
-              />
-            </div>
-
-            <div className="filter-roles">
-              <select
-                name="user-role"
-                id="user-role"
-                className="input-base w-full appearance-none rounded
-    px-4 py-3 pr-10 text-sm
-    transition"
-              >
-                <option value="select role">Select Role</option>
-                <option value="manager">Manager</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-
-            <div className="filter-status">
-              <select
-                name="user-status"
-                id="user-status"
-                className="input-base w-full appearance-none rounded
-    px-4 py-3 pr-10 text-sm
-    transition"
-              >
-                <option value="select status">Select Status</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-              </select>
-            </div>
-          </div>
-
+        <div className="flex justify-end items-end gap-4">
           <div className="create-user">
             <button
               onClick={() => setOpen(true)}
@@ -71,6 +33,55 @@ export default function Studies() {
             </button>
           </div>
         </div>
+
+        <section className="filter-queries mt-10 grid grid-cols-3 gap-5 p-10 bg-white rounded-lg">
+          <div className="search-div flex flex-col gap-2">
+            <label htmlFor="search" className="input-label-base">
+              Search by Project Code/Title
+            </label>
+
+            <div className="search relative w-full">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="search by project code or project title..."
+                className="input-base w-full"
+              />
+
+              <Icon
+                icon={Search}
+                className="w-5 h-5 text-gray-400 absolute top-1/2 right-3 -translate-y-1/2"
+              />
+            </div>
+          </div>
+
+          <div className="status-div flex flex-col gap-2">
+            <label htmlFor="status" className="input-label-base">
+              Status
+            </label>
+
+            <select name="status" id="status" className="input-base">
+              <option value="all">All Status</option>
+
+              {Object.values(UserStatus).map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="filter-actions flex gap-3 items-end">
+            <button className="bg-red-700 text-white font-bold py-1.5 px-8 rounded">
+              Apply Filters
+            </button>
+
+            <button className="border border-gray-600 px-8 py-1.5 rounded text-gray-600">
+              Reset
+            </button>
+          </div>
+        </section>
 
         <div className="users-table py-4 mt-10">
           <table className="w-full border rounded-lg overflow-hidden">
