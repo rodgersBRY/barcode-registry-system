@@ -31,7 +31,7 @@ body {
   }
 
   .input-base {
-    @apply p-2 border border-gray-400 rounded focus:outline-none;
+    @apply p-2 border border-gray-400 rounded focus:outline-none text-xs;
   }
 
   .table-head-base {
@@ -39,7 +39,7 @@ body {
   }
 
   .table-data-base {
-    @apply px-4 py-3 text-sm font-medium text-gray-900 text-center;
+    @apply px-4 py-3 text-sm font-medium text-gray-900 text-start;
   }
 
   .pagination-tile-base {

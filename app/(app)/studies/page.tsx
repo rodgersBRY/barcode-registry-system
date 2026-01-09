@@ -1,12 +1,18 @@
+"use client";
+
 import { Icon } from "@/components/icon";
 import { Eye, Pencil, Plus } from "lucide-react";
-import Link from "next/link";
 import { PageHeader } from "../_/PageHeader";
 import { PaginationWidget } from "../_/PaginationWidget";
 import { dummyStudies } from "@/data/studies";
 import { formatDate } from "@/utils/formatDate";
+import { useState } from "react";
+import { Modal } from "../_/Modal";
+import { StudyForm } from "./_/StudyForm";
 
 export default function Studies() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div>
       <PageHeader
@@ -56,12 +62,13 @@ export default function Studies() {
           </div>
 
           <div className="create-user">
-            <Link href={""}>
-              <div className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white">
-                <Icon icon={Plus} className="w-6 h-4"></Icon>
-                <p>Create Study/Project</p>
-              </div>
-            </Link>
+            <button
+              onClick={() => setOpen(true)}
+              className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white hover:cursor-pointer"
+            >
+              <Icon icon={Plus} className="w-6 h-4"></Icon>
+              <p>Create Study/Project</p>
+            </button>
           </div>
         </div>
 
@@ -83,11 +90,7 @@ export default function Studies() {
                   key={study.id}
                   className="hover:bg-gray-50 transition text-sm"
                 >
-                  <td className="table-data-base">
-                    <div className="rounded-full p-3 text-center flex items-center justify-center">
-                      <p className="text-sm text-gray-800">{study.code}</p>
-                    </div>
-                  </td>
+                  <td className="table-data-base">{study.code}</td>
 
                   <td className="table-data-base">{study.title}</td>
 
@@ -100,12 +103,10 @@ export default function Studies() {
                   </td>
 
                   <td className="table-data-base flex gap-3 justify-start">
-                    {study.active ? (
+                    {study.active && (
                       <div className="flex items-center gap-3 text-red-600">
                         <Icon icon={Eye} className="w-4"></Icon> <p>View</p>
                       </div>
-                    ) : (
-                      <div className=""></div>
                     )}
 
                     <div className="flex gap-3">
@@ -123,6 +124,12 @@ export default function Studies() {
 
         <PaginationWidget />
       </main>
+
+      {open && (
+        <Modal onClose={() => setOpen(false)}>
+          <StudyForm mode="create" onSuccess={() => setOpen(false)}></StudyForm>
+        </Modal>
+      )}
     </div>
   );
 }
