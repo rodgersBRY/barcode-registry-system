@@ -42,30 +42,21 @@ export function UserForm({ mode, onSuccess }: UserFormProps) {
       </div>
 
       <div className="full-name-div flex flex-col gap-2">
-        <label htmlFor="name" className="input-label-base">
-          Role <span className="text-red-600">*</span>
+        <label htmlFor="status" className="input-label-base">
+          User Role <span className="text-red-600">*</span>
         </label>
 
-        <div className="user-roles">
-          <select
-            name="user-role"
-            id="user-role"
-            className="input-base w-full appearance-none rounded
-    px-4 py-3 pr-10 text-sm
-    transition"
-          >
-            <option value="select role" selected>
-              Select Role
-            </option>
-            {Object.values(UserRole).map((role) => (
-              <option key={role} value={role} className="capitalize">
-                {role}
-              </option>
-            ))}
-          </select>
-        </div>
+        <select name="status" id="status" className="input-base">
+          <option value="">Select Role</option>
 
-        <div className="role-tips bg-gray-100 rounded-lg p-3">
+          {Object.values(UserRole).map((role) => (
+            <option key={role} value={role}>
+              {role}
+            </option>
+          ))}
+        </select>
+
+        <div className="role-tips bg-gray-100 rounded-lg p-3 mt-1">
           <ul className="text-xs text-gray-600">
             <li>
               <strong>Admin:</strong> Full system access including user
@@ -84,26 +75,15 @@ export function UserForm({ mode, onSuccess }: UserFormProps) {
           Account Status <span className="text-red-600">*</span>
         </label>
 
-        <div className="user-status-values">
-          <select
-            name="user-status"
-            id="user-status"
-            className="input-base w-full appearance-none rounded
-    px-4 py-3 pr-10 text-sm
-    transition"
-          >
-            <option value="select status" selected>
-              Select Status
+        <select name="status" id="status" className="input-base">
+          <option value="">Select Status</option>
+
+          {Object.values(UserStatus).map((status) => (
+            <option key={status} value={status}>
+              {status}
             </option>
-            {Object.values(UserStatus)
-              .filter((status) => status != UserStatus.pending)
-              .map((status) => (
-                <option key={status} value={status}>
-                  {status}
-                </option>
-              ))}
-          </select>
-        </div>
+          ))}
+        </select>
 
         <p className="text-xs font-semibold text-gray-400">
           Active users can log in and use the system

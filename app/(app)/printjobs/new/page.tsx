@@ -32,7 +32,7 @@ export default function Studies() {
               </select>
 
               <p className="text-xs font-semibold text-gray-400">
-                <span className="text-red-800">Create new study</span>(Admin
+                <span className="text-red-800">Create new study</span> (Admin
                 only)
               </p>
             </div>
@@ -47,7 +47,7 @@ export default function Studies() {
                 name="job-reference"
                 id="job-reference"
                 className="input-base"
-                placeholder="user@company.com"
+                placeholder="e.g., PR-2026-0001"
               />
 
               <p className="text-xs font-semibold text-gray-400">
@@ -192,7 +192,6 @@ export default function Studies() {
           <div className="notes-div flex flex-col gap-2">
             <label htmlFor="notes" className="input-label-base">
               Notes / Comments
-              <span className="text-red-600">*</span>
             </label>
 
             <textarea name="notes" id="notes" className="input-base" rows={4} />

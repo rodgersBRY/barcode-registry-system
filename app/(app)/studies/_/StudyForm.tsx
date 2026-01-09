@@ -61,7 +61,7 @@ export function StudyForm({ mode, onSuccess }: StudyFormProps) {
         </p>
       </div>
 
-      <div className="project-pi-div flex flex-col gap-2">
+      {/* <div className="project-pi-div flex flex-col gap-2">
         <label htmlFor="project-pi" className="input-label-base">
           Principal Investigator (PI)/Lead
           <span className="text-red-600">*</span>
@@ -74,7 +74,7 @@ export function StudyForm({ mode, onSuccess }: StudyFormProps) {
           className="input-base"
           placeholder="Enter name"
         />
-      </div>
+      </div> */}
 
       <div className="flex justify-between gap-5">
         <div className="flex-1 start-date-div flex flex-col gap-2">
@@ -108,28 +108,16 @@ export function StudyForm({ mode, onSuccess }: StudyFormProps) {
         <label htmlFor="status" className="input-label-base">
           Status <span className="text-red-600">*</span>
         </label>
+        
+        <select name="status" id="status" className="input-base">
+          <option value="">Select Status</option>
 
-        <div className="project-status-values">
-          <select
-            name="project-status"
-            id="project-status"
-            className="input-base w-full appearance-none rounded
-            px-4 py-3 pr-10 text-sm
-            transition"
-          >
-            <option value="select status" selected>
-              Select Status
+          {Object.values(UserStatus).map((status) => (
+            <option key={status} value={status}>
+              {status}
             </option>
-            {Object.values(UserStatus)
-              .filter((status) => status != UserStatus.pending)
-              .map((status) => (
-                <option key={status} value={status}>
-                  {status}
-                </option>
-              ))}
-          </select>
-        </div>
-
+          ))}
+        </select>
         <p className="text-xs font-semibold text-gray-400">
           Closed studies cannot have new print jobs added
         </p>
