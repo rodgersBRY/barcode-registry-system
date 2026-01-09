@@ -1,12 +1,18 @@
-import Link from "next/link";
+"use client";
+
 import { Plus, Pencil } from "lucide-react";
 import { dummyUsers } from "@/data/users";
 import { Icon } from "@/components/icon";
 import { formatDate } from "@/utils/formatDate";
 import { PaginationWidget } from "../_/PaginationWidget";
 import { PageHeader } from "../_/PageHeader";
+import { useState } from "react";
+import { Modal } from "../_/Modal";
+import { UserForm } from "./_/UserForm";
 
 export default function Users() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <PageHeader
@@ -56,12 +62,15 @@ export default function Users() {
           </div>
 
           <div className="create-user">
-            <Link href={""}>
+            <button
+              onClick={() => setOpen(true)}
+              className="hover:cursor-pointer"
+            >
               <div className="bg-red-700 flex items-center gap-1 py-2 px-8 rounded text-white">
                 <Icon icon={Plus} className="w-6 h-4"></Icon>
                 <p>Create User</p>
               </div>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -125,6 +134,12 @@ export default function Users() {
         <hr className="my-4 text-gray-300" />
 
         <PaginationWidget></PaginationWidget>
+
+        {open && (
+          <Modal onClose={() => setOpen(false)}>
+            <UserForm mode="create" onSuccess={() => setOpen(false)}></UserForm>
+          </Modal>
+        )}
       </main>
     </>
   );

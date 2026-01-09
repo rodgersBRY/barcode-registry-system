@@ -26,6 +26,10 @@ body {
 }
 
 @layer components {
+  .input-label-base {
+    @apply font-semibold text-sm;
+  }
+
   .input-base {
     @apply p-2 border border-gray-400 rounded focus:outline-none;
   }
